@@ -1,0 +1,74 @@
+{
+  "name": "unofficial-sri-lankan-design-system",
+  "version": "0.0.1",
+  "description": "This an open source project,  is a Sri Lankan IT professionals collaboration",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "cypress": "cypress open",
+    "dev": "webpack --mode development",
+    "start": "webpack serve",
+    "watch": "webpack --watch",
+    "build": "webpack --mode production",
+    "images": "node ./libs/images.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sameerast/unofficial-sri-lankan-design-system.git"
+  },
+  "keywords": [
+    "sri-lanka",
+    "design-system"
+  ],
+  "author": "Sameera Thilakasiri <sameerast@gmail.com> (https://www.sameerast.com)",
+  "contributors": [
+    "Sameera Thilakasiri <sameerast@gmail.com> (https://www.sameerast.com)",
+    "Subodha Pathiraja"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sameerast/unofficial-sri-lankan-design-system/issues"
+  },
+  "homepage": "https://github.com/sameerast/unofficial-sri-lankan-design-system#readme",
+  "devDependencies": {
+    "@babel/core": "^7.14.3",
+    "@babel/plugin-proposal-class-properties": "^7.13.0",
+    "@babel/preset-env": "^7.14.2",
+    "@popperjs/core": "^2.9.2",
+    "@types/ramda": "^0.27.40",
+    "autoprefixer": "^10.2.6",
+    "babel-loader": "^8.2.2",
+    "bootstrap": "^5.0.1",
+    "clean-webpack-plugin": "^4.0.0-alpha.0",
+    "css-loader": "^5.2.6",
+    "css-minimizer-webpack-plugin": "^3.0.1",
+    "dotenv-webpack": "^7.0.2",
+    "fast-glob": "^3.2.5",
+    "file-loader": "^6.2.0",
+    "html-loader": "^2.1.2",
+    "html-webpack-plugin": "^5.3.1",
+    "mime-types": "^2.1.30",
+    "mini-css-extract-plugin": "^1.6.0",
+    "node-sass": "^6.0.0",
+    "path": "^0.12.7",
+    "postcss": "^8.3.0",
+    "postcss-loader": "^5.3.0",
+    "postcss-preset-env": "^5.3.0",
+    "sass-loader": "^11.1.1",
+    "sharp": "^0.28.3",
+    "style-loader": "^2.0.0",
+    "trash": "^7.1.1",
+    "uglifyjs-webpack-plugin": "^2.2.0",
+    "webpack": "^5.38.1",
+    "webpack-cli": "^4.7.0",
+    "webpack-dev-server": "^3.11.2",
+    "webpack-merge": "^5.8.0"
+  },
+  "dependencies": {
+    "cypress": "^7.5.0",
+    "jquery": "^3.6.0",
+    "moment": "^2.29.1"
+  }
+}
