@@ -7,8 +7,17 @@ const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 
+const mode = process.env.NODE_ENV || "development";
+// Temporary workaround for 'browserslist' bug that is being patched in the near future
+const target = process.env.NODE_ENV === "production" ? "browserslist" : "web";
+
+//https://www.youtube.com/watch?v=JlBDfj75T3Y&list=PLblA84xge2_zwxh3XJqy6UVxS60YdusY8&index=10
 module.exports = {
-  mode: "development", //  development,
+  // mode defaults to 'production' if not set
+  mode: mode,
+
+  // defaults to "web", so only required for webpack-dev-server bug
+  target: target,
 
   devServer: {
     historyApiFallback: true,
@@ -26,12 +35,12 @@ module.exports = {
 
   // Define the destination directory and filenames of compiled resources
   output: {
-    filename: "js/main.[contenthash].js",
+    filename: "./js/main.[contenthash].js",
     path: path.resolve(__dirname, "./public")
   },
 
   // Define development options
-  devtool: "inline-source-map",
+  devtool: "source-map",
   devServer: {
     index: "index.html",
     contentBase: path.join(__dirname, "public"),
@@ -54,36 +63,15 @@ module.exports = {
         test: /\.js$/,
         exclude: /(node_modules)/,
         use: {
-          loader: "babel-loader",
-          options: {
-            presets: ["@babel/preset-env"]
-          }
+          // without additional settings, this will reference .babelrc
+          loader: "babel-loader"
         }
       },
 
       // CSS, PostCSS, and Sass
       {
-        test: /\.(scss|css)$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          {
-            loader: "css-loader",
-            options: {
-              importLoaders: 2,
-              sourceMap: true,
-              url: false
-            }
-          },
-          {
-            loader: "postcss-loader",
-            options: {
-              postcssOptions: {
-                plugins: ["autoprefixer"]
-              }
-            }
-          },
-          "sass-loader"
-        ]
+        test: /\.(scss|css)$/, //(s[ac]|c)ss$/i
+        use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader", "sass-loader"]
       },
       //  images
       {
@@ -132,8 +120,8 @@ module.exports = {
 
     // Extracts CSS into separate files
     new MiniCssExtractPlugin({
-      filename: "./css/main.[contenthash].css",
-      chunkFilename: "[id].css"
+      filename: "./css/main.[contenthash].css"
+      //chunkFilename: "[id].css"
     }),
 
     new HTMLWebpackPlugin({
