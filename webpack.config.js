@@ -6,6 +6,7 @@ const HTMLWebpackPlugin = require("html-webpack-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
+const HtmlWebpackInjector = require("html-webpack-injector");
 
 module.exports = {
   mode: "development", //  development,
@@ -13,7 +14,6 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
     contentBase: path.resolve(__dirname, "./public"),
-    open: true,
     compress: true,
     hot: true,
     port: 8080
@@ -26,7 +26,7 @@ module.exports = {
 
   // Define the destination directory and filenames of compiled resources
   output: {
-    filename: "js/main.[contenthash].js",
+    filename: "js/[name].[contenthash].js",
     path: path.resolve(__dirname, "./public")
   },
 
@@ -63,7 +63,7 @@ module.exports = {
 
       // CSS, PostCSS, and Sass
       {
-        test: /\.(scss|css)$/,
+        test: /\.s(a|c)ss$/,
         use: [
           MiniCssExtractPlugin.loader,
           {
@@ -132,17 +132,17 @@ module.exports = {
 
     // Extracts CSS into separate files
     new MiniCssExtractPlugin({
-      filename: "./css/main.[contenthash].css",
-      chunkFilename: "[id].css"
+      filename: "./css/[name].[contenthash].css"
     }),
 
     new HTMLWebpackPlugin({
       template: path.resolve(__dirname, "./src/index.html"),
-      filename: "./index.html" // output file
-      //inject: false
+      filename: path.resolve(__dirname, "./public/index.html")
     }),
 
     // Only update what has changed on hot reload
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+
+    new HtmlWebpackInjector()
   ]
 };
