@@ -10,67 +10,7 @@
 
 <body>
 <!-- NAVBAR -->
-
-<nav class="nav-main navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container">
-        <a class="navbar-brand" href="#">Boilerplate Inc</a>
-        <button class="navbar-toggler"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#nav-main"
-                aria-controls="nav-main"
-                aria-expanded="false"
-                aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="nav-main">
-            <ul class="navbar-nav me-auto">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">
-                        Home <span class="sr-only">(current)</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#about">About</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle"
-                       href="#"
-                       id="navbarDropdown"
-                       role="button"
-                       data-bs-toggle="dropdown"
-                       aria-expanded="false"
-                    >
-                        Portfolio
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#html-and-css">HTML &amp; CSS</a>
-                        <a class="dropdown-item" href="#javascript">JavaScript</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#react">React</a>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#contact">Contact</a>
-                </li>
-            </ul>
-            <form class="d-flex"
-                  action="index.html"
-                  method="GET">
-                <div class="input-group">
-                    <input class="form-control"
-                           name="q"
-                           type="search"
-                           placeholder="Search"
-                           aria-label="Search"/>
-                    <button class="input-group-btn btn btn-primary" type="submit">Search</button>
-                </div>
-            </form>
-        </div>
-    </div>
-    <!-- /container -->
-</nav>
+{{> partials/header.html}}
 
 <div class="container">
     <!-- CAROUSEL -->
@@ -452,8 +392,10 @@
     </section>
 
     <div class="mb-5">&nbsp;</div>
+
+    <!-- FOOTER -->
+    ${require('./partials/footer.html')}
 </div>
 <!-- /container -->
-
 </body>
 </html>
