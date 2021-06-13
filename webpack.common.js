@@ -1,20 +1,32 @@
 const webpack = require("webpack");
 const Dotenv = require("dotenv-webpack");
 const path = require("path");
-const HTMLWebpackPlugin = require("html-webpack-plugin");
-//const HtmlWebpackInjector = require("html-webpack-injector");
-//const HandlebarsPlugin = require("handlebars-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   // Define the entry points of our application (can be multiple for different sections of a website)
   entry: {
-    main: "src/assets/javascripts/main.js",
-    style: "src/assets/javascripts/style.js"
+    main: "./src/assets/javascripts/scripts.js",
+    styles: "./src/assets/stylesheets/main.scss"
+  },
+
+  externals: {
+    jquery: "jQuery"
+  },
+  resolve: {
+    extensions: [".js", ".css", ".scss"]
   },
 
   // Define loaders
   module: {
     rules: [
+      // CSS, PostCSS, and Sass
+      {
+        test: /\.s(a|c)ss$/,
+        use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader", "sass-loader"]
+      },
+
+      //  html loader
       {
         test: /\.html$/i,
         use: ["html-loader"]
@@ -32,15 +44,6 @@ module.exports = {
         }
       },
 
-      //  images
-      {
-        test: /\.(jpe?g|png|gif|svg|ico)$/,
-        type: "asset/resource",
-        generator: {
-          filename: "assets/images/[name][ext]?[query]"
-        }
-      },
-
       // Fonts
       {
         test: /\.(woff(2)?|eot|ttf|otf|svg|)$/,
@@ -51,42 +54,22 @@ module.exports = {
       {
         test: /\.svg$/,
         type: "asset/inline"
+      },
+      {
+        test: require.resolve("jquery"),
+        loader: "expose-loader",
+        options: {
+          exposes: ["$", "jQuery"]
+        }
       }
     ]
   },
 
   // Define used plugins
   plugins: [
-    new HTMLWebpackPlugin({
-      template: path.resolve(__dirname, "src/index.html"),
-      filename: path.resolve(__dirname, "public/index.html")
-    }),
-
-    // new HandlebarsPlugin({
-    //   htmlWebpackPlugin: {
-    //     enabled: true, // register all partials from html-webpack-plugin, defaults to `false`
-    //     prefix: "html", // where to look for htmlWebpackPlugin output. default is "html"
-    //     HTMLWebpackPlugin // optionally: pass in HtmlWebpackPlugin if it cannot be resolved
-    //   },
-    //   entry: path.join(process.cwd(), "src/pages"),
-    //   output: path.join(process.cwd(), "public", "index.html"),
-    //   // globbed path to partials, where folder/filename is unique
-    //   partials: [path.join(process.cwd(), "src/partials")]
-    // }),
-    //  HTML partial including
-    // new FileIncludeWebpackPlugin({
-    //   source: "./src/pages", // relative path to your pages
-    //   destination: "./pages"
-    // }),
-
     // Load .env file for environment variables in JS
     new Dotenv({
       path: "./.env"
-    }),
-
-    // Only update what has changed on hot reload
-    new webpack.HotModuleReplacementPlugin()
-
-    //new HtmlWebpackInjector()
+    })
   ]
 };

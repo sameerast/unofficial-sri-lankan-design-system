@@ -8,10 +8,10 @@
   },
   "scripts": {
     "cypress": "cypress open",
-    "dev": "cross-env NODE_ENV=development webpack --config webpack.dev.js",
     "start": "cross-env NODE_ENV=development webpack serve",
-    "watch": "cross-env NODE_ENV=development webpack --watch",
-    "build": "cross-env NODE_ENV=production & webpack --config webpack.prod.js",
+    "stop": "taskkill -F -IM node.exe",
+    "dev": "cross-env NODE_ENV=development webpack serve --config webpack.dev.js",
+    "build": "cross-env NODE_ENV=production webpack --config webpack.prod.js",
     "images": "node ./libs/images.js"
   },
   "repository": {
@@ -31,10 +31,22 @@
   "bugs": {
     "url": "https://github.com/sameerast/unofficial-sri-lankan-design-system/issues"
   },
-  "homepage": "https://github.com/sameerast/unofficial-sri-lankan-design-system#readme",
-  "browser": {
-    "[module-name]": false   
+  "browserslist": {
+    "production": [
+      "> 1%",
+      "ie 10"
+    ],
+    "modern": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version",
+      "last 1 ie version"
+    ],
+    "ssr": [
+      "node 12"
+    ]
   },
+  "homepage": "https://github.com/sameerast/unofficial-sri-lankan-design-system#readme",
   "devDependencies": {
     "@babel/core": "^7.14.3",
     "@babel/plugin-proposal-class-properties": "^7.13.0",
@@ -45,18 +57,20 @@
     "babel-loader": "^8.2.2",
     "bootstrap": "^5.0.1",
     "clean-webpack-plugin": "^4.0.0-alpha.0",
-    "copy-webpack-plugin": "^9.0.0",
     "cross-env": "^7.0.3",
     "css-loader": "^5.2.6",
     "css-minimizer-webpack-plugin": "^3.0.1",
     "dotenv-webpack": "^7.0.2",
-    "extract-css-chunks-webpack-plugin": "^4.9.0",
     "fast-glob": "^3.2.5",
     "file-loader": "^6.2.0",
     "fs": "^0.0.1-security",
     "html-loader": "^2.1.2",
-    "html-webpack-injector": "^1.1.4",
     "html-webpack-plugin": "^5.3.1",
+    "image-minimizer-webpack-plugin": "^2.2.0",
+    "imagemin-gifsicle": "^7.0.0",
+    "imagemin-jpegtran": "^7.0.0",
+    "imagemin-optipng": "^8.0.0",
+    "imagemin-svgo": "^9.0.0",
     "mime-types": "^2.1.30",
     "mini-css-extract-plugin": "^1.6.0",
     "path": "^0.12.7",
