@@ -11,7 +11,7 @@ const { extendDefaultPlugins } = require("svgo");
 require("dotenv").config({ path: ".env" });
 
 /* defining the source and distribution paths */
-const DIST_DIR = path.resolve(__dirname, "dist");
+const PUB_DIR = path.resolve(__dirname, "public");
 const SRC_DIR = path.resolve(__dirname, "src");
 
 // get env information

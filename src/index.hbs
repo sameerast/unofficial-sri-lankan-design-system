@@ -6,10 +6,17 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge"/>
     <title>Bootstrap 5 &amp; WebPack 5 Boilerplate</title>
     <link rel="icon" href="./favicon.ico" sizes="32x32" />
+    <link rel="stylesheet" href="css/main.bundle.css" />
 </head>
 
 <body>
 <!-- NAVBAR -->
+
+
+{{#> partials/header }}
+  Header didnt find
+{{/partials/header}}
+
 <div class="container">
     <!-- CAROUSEL -->
     <div id="carousel" class="carousel slide" data-ride="carousel">
@@ -392,7 +399,9 @@
     <div class="mb-5">&nbsp;</div>
 
     <!-- FOOTER -->
+    {{> partials/footer }} 
 </div>
 <!-- /container -->
+<script src="js/main.bundle.js"></script>
 </body>
 </html>

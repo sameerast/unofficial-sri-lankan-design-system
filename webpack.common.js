@@ -5,10 +5,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   // Define the entry points of our application (can be multiple for different sections of a website)
-  entry: {
-    main: "./src/assets/javascripts/scripts.js",
-    styles: "./src/assets/stylesheets/main.scss"
-  },
+  entry: ["./src/assets/javascripts/scripts.js", "./src/assets/stylesheets/main.scss"],
 
   externals: {
     jquery: "jQuery"
