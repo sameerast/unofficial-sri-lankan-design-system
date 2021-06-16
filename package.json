@@ -62,6 +62,7 @@
     "css-loader": "^5.2.6",
     "css-minimizer-webpack-plugin": "^3.0.1",
     "dotenv-webpack": "^7.0.2",
+    "extract-loader": "^5.1.0",
     "fast-glob": "^3.2.5",
     "file-loader": "^6.2.0",
     "fs": "^0.0.1-security",
@@ -94,7 +95,9 @@
     "webpack": "^5.38.1",
     "webpack-cli": "^4.7.0",
     "webpack-dev-server": "^3.11.2",
-    "webpack-merge": "^5.8.0"
+    "webpack-manifest-plugin": "^3.1.1",
+    "webpack-merge": "^5.8.0",
+    "webpack-nano": "^1.1.1"
   },
   "dependencies": {
     "cypress": "^7.5.0",
