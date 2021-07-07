@@ -1,11 +1,11 @@
-const mix = require("laravel-mix");
-const LiveReloadPlugin = require("webpack-livereload-plugin");
-require("laravel-mix-imagemin");
-const semver = require("semver");
-const fs = require("fs");
+const mix = require('laravel-mix');
+const LiveReloadPlugin = require('webpack-livereload-plugin');
+require('laravel-mix-imagemin');
+const semver = require('semver');
+const fs = require('fs');
 
-moment = require("moment");
-require("chartjs-adapter-moment");
+moment = require('moment');
+require('chartjs-adapter-moment');
 
 /*
  |--------------------------------------------------------------------------
@@ -19,29 +19,29 @@ require("chartjs-adapter-moment");
  */
 
 var packageJSON = {};
-packageJSON = require("./package.json");
-const currentBSVersion = fs.readFileSync(".bsv", { encoding: "utf8", flag: "r" });
+packageJSON = require('./package.json');
+const currentBSVersion = fs.readFileSync('.bsv', { encoding: 'utf8', flag: 'r' });
 if (packageJSON.devDependencies.bootstrap != currentBSVersion) {
-  fs.writeFileSync(".bsv", packageJSON.devDependencies.bootstrap);
+  fs.writeFileSync('.bsv', packageJSON.devDependencies.bootstrap);
 
   console.log(`Bootstrap new version ${packageJSON.devDependencies.bootstrap} updated to local .BSV`);
-  mix.copy(["./node_modules/bootstrap/dist/js/bootstrap.js"], "resources/bootstrap/js");
-  mix.copy(["./node_modules/bootstrap/scss"], "resources/bootstrap/scss");
+  mix.copy(['./node_modules/bootstrap/dist/js/bootstrap.js'], 'resources/bootstrap/js');
+  mix.copy(['./node_modules/bootstrap/scss'], 'resources/bootstrap/scss');
 
   console.log(`Bootstrap new version ${packageJSON.devDependencies.bootstrap} copied to resources location`);
 }
 
 mix.browserSync({
-  proxy: "slds.localhost:8080" //php artisan serve --host=slds.localhost --port=8080
+  proxy: 'slds.localhost:8080' //php artisan serve --host=slds.localhost --port=8080
 });
-
+//"serve": "php artisan serve --host=domain.test --port=8080 & npm run watch"
 mix.webpackConfig({
   plugins: [new LiveReloadPlugin()],
   stats: {
     children: true
   },
   resolve: {
-    modules: ["node_modules"],
+    modules: ['node_modules'],
     alias: {
       //Chart: "chart.js/dist/chart.min.js"
     }
@@ -49,22 +49,22 @@ mix.webpackConfig({
 });
 
 mix
-  .js(["resources/js/app.js"], "public/js/app.js")
-  .scripts(["resources/js/charts.js"], "public/js/components.js")
-  .sass("resources/vendor/bootstrap/scss/bootstrap.scss", "public/css/bootstrap.css")
-  .postCss("resources/css/app.css", "public/css/app.css", [
-    require("postcss-import"),
-    require("postcss-extend"),
-    require("postcss-nested"),
-    require("autoprefixer"),
-    require("postcss-custom-properties")
+  .js(['resources/js/app.js'], 'public/js/app.js')
+  .scripts(['resources/js/charts.js'], 'public/js/components.js')
+  .sass('resources/vendor/bootstrap/scss/bootstrap.scss', 'public/css/bootstrap.css')
+  .postCss('resources/css/app.css', 'public/css/app.css', [
+    require('postcss-import'),
+    require('postcss-extend'),
+    require('postcss-nested'),
+    require('autoprefixer'),
+    require('postcss-custom-properties')
   ]);
-mix.extract(["lodash", "jQuery", "Popper", "bootstrap", "axios", "moment"], "public/js/vendor.js");
-mix.copy(["resources/assets/images"], "public/images");
-mix.copy(["./node_modules/chart.js/dist/chart.min.js"], "public/js/chart.js");
+mix.extract(['lodash', 'jQuery', 'Popper', 'bootstrap', 'axios', 'moment'], 'public/js/vendor.js');
+mix.copy(['resources/assets/images'], 'public/images');
+mix.copy(['./node_modules/chart.js/dist/chart.min.js'], 'public/js/chart.js');
 mix.autoload({
-  jquery: ["$", "window.jQuery", "jQuery"],
-  moment: ["moment", "window.moment"]
+  jquery: ['$', 'window.jQuery', 'jQuery'],
+  moment: ['moment', 'window.moment']
 });
 // mix.imagemin(
 //   "resources/assets/images",

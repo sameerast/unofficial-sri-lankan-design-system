@@ -30,7 +30,10 @@
     "watch-poll": "mix watch -- --watch-options-poll=1000",
     "hot": "mix watch --hot",
     "prod": "npm run production",
-    "production": "mix --production"
+    "production": "mix --production",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "test": "start-server-and-test dev http://slds.localhost:8080 cy:run"
   },
   "devDependencies": {
     "@popperjs/core": "^2.9.2",
@@ -42,6 +45,7 @@
     "chart.js": "^3.3.2",
     "chartjs-adapter-moment": "^1.0.0",
     "copy-webpack-plugin": "^9.0.0",
+    "cypress": "^7.6.0",
     "eslint": "^7.2.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-config-prettier": "^8.3.0",
