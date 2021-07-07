@@ -24,11 +24,11 @@ We would like to extend our thanks to the following sponsors for funding DeSySLa
 
 ## Contributing
 
-Thank you for considering contributing to the DeSySLaG framework! The contribution guide can be found in the [Laravel documentation](https://www.DeSySLaG.lk/docs/contributions).
+Thank you for considering contributing to the DeSySLaG framework! The contribution guide can be found in the [DeSySLaG documentation](https://www.desyslag.lk/desyslag-contribution-guide/).
 
 ## Code of Conduct
 
-In order to ensure that the DeSySLaG community is welcoming to all, please review and abide by the [Code of Conduct](https://www.DeSySLaG.lk/docs/contributions#code-of-conduct).
+In order to ensure that the DeSySLaG community is welcoming to all, please review and abide by the [Code of Conduct](https://www.desyslag.lk/code-of-conduct/).
 
 ## Security Vulnerabilities
 
