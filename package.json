@@ -1,13 +1,13 @@
 {
-  "name": "unofficial-sri-lankan-design-system",
+  "name": "desyslag",
   "version": "0.1.0",
-  "description": "This an open source project,  is a Sri Lankan IT professionals collaboration",
+  "description": "The Design System of Sri Lankan Government – DeSySLaG. This an open source project,  is a Sri Lankan IT professionals collaboration",
   "directories": {
     "doc": "docs"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sameerast/unofficial-sri-lankan-design-system.git"
+    "url": "git+https://github.com/desyslag-foundation/desyslag.git"
   },
   "keywords": [
     "sri-lanka",
@@ -20,7 +20,7 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/sameerast/unofficial-sri-lankan-design-system/issues"
+    "url": "https://github.com/desyslag-foundation/desyslag.git/issues"
   },
   "private": true,
   "scripts": {
@@ -42,8 +42,6 @@
     "bootstrap": "5.0.0-beta3",
     "browser-sync": "^2.26.14",
     "browser-sync-webpack-plugin": "^2.3.0",
-    "chart.js": "^3.3.2",
-    "chartjs-adapter-moment": "^1.0.0",
     "copy-webpack-plugin": "^9.0.0",
     "cypress": "^7.6.0",
     "eslint": "^7.2.0",
@@ -52,11 +50,9 @@
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-prettier": "^3.4.0",
     "fs": "^0.0.1-security",
-    "imagemin-mozjpeg": "^9.0.0",
-    "imagemin-webpack-plugin": "^2.4.2",
+    "highcharts": "^9.1.2",
     "jquery": "^3.6",
     "laravel-mix": "^6.0.6",
-    "laravel-mix-imagemin": "^1.0.3",
     "lodash": "^4.17.19",
     "moment": "^2.29.1",
     "popper.js": "^1.16.1",
