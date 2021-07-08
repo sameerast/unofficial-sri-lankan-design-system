@@ -1,11 +1,10 @@
 const mix = require('laravel-mix');
 const LiveReloadPlugin = require('webpack-livereload-plugin');
-require('laravel-mix-imagemin');
 const semver = require('semver');
 const fs = require('fs');
 
 moment = require('moment');
-require('chartjs-adapter-moment');
+const Highcharts = require('highcharts');
 
 /*
  |--------------------------------------------------------------------------
@@ -50,7 +49,6 @@ mix.webpackConfig({
 
 mix
   .js(['resources/js/app.js'], 'public/js/app.js')
-  .scripts(['resources/js/charts.js'], 'public/js/components.js')
   .sass('resources/vendor/bootstrap/scss/bootstrap.scss', 'public/css/bootstrap.css')
   .postCss('resources/css/app.css', 'public/css/app.css', [
     require('postcss-import'),
@@ -58,138 +56,11 @@ mix
     require('postcss-nested'),
     require('autoprefixer'),
     require('postcss-custom-properties')
-  ]);
-mix.extract(['lodash', 'jQuery', 'Popper', 'bootstrap', 'axios', 'moment'], 'public/js/vendor.js');
+  ])
+  .version();
+mix.extract(['lodash', 'jQuery', 'Popper', 'bootstrap', 'axios', 'moment', 'Highcharts'], 'public/js/vendor.js').version();
 mix.copy(['resources/assets/images'], 'public/images');
-mix.copy(['./node_modules/chart.js/dist/chart.min.js'], 'public/js/chart.js');
 mix.autoload({
   jquery: ['$', 'window.jQuery', 'jQuery'],
   moment: ['moment', 'window.moment']
 });
-// mix.imagemin(
-//   "resources/assets/images",
-//   {
-//     context: "resources"
-//   },
-//   {
-//     optipng: {
-//       optimizationLevel: 5
-//     },
-//     jpegtran: null,
-//     plugins: [
-//       require("imagemin-mozjpeg")({
-//         quality: 100,
-//         progressive: true
-//       })
-//     ]
-//   }
-// );
-
-/*
-  mix.js('resources/js/app.js', 'public/js')
-    .sass('resources/sass/app.scss', 'public/css')
-    .sourceMaps(true, 'source-map')
-    .version();
-
-
-
-    let mix = require('laravel-mix');
-
-mix.autoload({
-    jquery: ['$', 'window.jQuery', 'jQuery'],
-    'popper.js/dist/umd/popper.js': ['Popper']
-});
-
-
-
-mix.js('node_modules/popper.js/dist/popper.js', 'public/js').sourceMaps();
-mix.js('resources/assets/js/app.js', 'public/js').sourceMaps();
-
-mix.sass('resources/assets/sass/app.scss', 'public/css')
-.sass('resources/assets/sass/com.scss', 'public/css');
-
-mix.styles([
-    'resources/assets/css/com-landing-page.css',
-    'resources/assets/css/com-badge-animation.css'
-], 'public/css/com.css');
-
-
-mix.copy('resources/assets/js/thirdparty/gauge.min.js', 'public/js/gauge.min.js');
-
-mix.js('resources/assets/js/com.js', 'public/js').version();
-
-mix.copyDirectory('resources/assets/images', 'public/img/');
-
-
-
-
-
-
-
-
-The top of my Bootstrap.js file looks like this...
-
-
-window._ = require('lodash');
-
-
-import Popper from 'popper.js/dist/umd/popper.js';
-
-
-try {
-    window.Popper = Popper;    
-    window.$ = window.jQuery = require('jquery');    
-    require('bootstrap');
-  } catch (e) {}
-
-
-
-  <script src="{{ asset('js/popper.js') }}"></script>
-
-
-
-
-
-
-
-
-  resources/js/bootstrap.js:
-
-window._ = require('lodash');
-window.axios = require('axios');
-window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
-window.Vue = require('vue');
-
-window.$ = window.jQuery = require('jquery');
-window.Popper = require('popper.js').default;
-require('bootstrap');
-
-
-
-
-
-
-
-
-
-
-
-webpack.mix.js:
-
-const mix = require('laravel-mix');
-
-mix.js('resources/js/app.js', 'public/js')
-  .extract(['lodash', 'axios', 'vue', 'jquery', 'popper.js', 'bootstrap'])
-  .sourceMaps()
-  .version()
-  .sass('resources/sass/app.scss', 'public/css').version();
-
-
-
-
-
-
-
-
-  
-    */

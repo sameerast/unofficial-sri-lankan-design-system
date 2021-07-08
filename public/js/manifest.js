@@ -161,7 +161,7 @@
 /******/ 			return __webpack_require__.O(result);
 /******/ 		}
 /******/ 		
-/******/ 		var chunkLoadingGlobal = self["webpackChunkunofficial_sri_lankan_design_system"] = self["webpackChunkunofficial_sri_lankan_design_system"] || [];
+/******/ 		var chunkLoadingGlobal = self["webpackChunkdesyslag"] = self["webpackChunkdesyslag"] || [];
 /******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
 /******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
 /******/ 	})();

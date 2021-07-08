@@ -1,4 +1,4 @@
-(self["webpackChunkunofficial_sri_lankan_design_system"] = self["webpackChunkunofficial_sri_lankan_design_system"] || []).push([["/js/app"],{
+(self["webpackChunkdesyslag"] = self["webpackChunkdesyslag"] || []).push([["/js/app"],{
 
 /***/ "./node_modules/@popperjs/core/lib/createPopper.js":
 /*!*********************************************************!*\

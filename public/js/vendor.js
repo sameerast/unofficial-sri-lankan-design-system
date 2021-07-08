@@ -1,4 +1,4 @@
-(self["webpackChunkunofficial_sri_lankan_design_system"] = self["webpackChunkunofficial_sri_lankan_design_system"] || []).push([["js/vendor"],{
+(self["webpackChunkdesyslag"] = self["webpackChunkdesyslag"] || []).push([["js/vendor"],{
 
 /***/ "./node_modules/axios/index.js":
 /*!*************************************!*\
