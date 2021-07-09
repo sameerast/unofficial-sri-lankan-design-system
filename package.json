@@ -33,7 +33,7 @@
     "production": "mix --production",
     "cy:open": "cypress open",
     "cy:run": "cypress run",
-    "test": "start-server-and-test dev http://slds.localhost:8080 cy:run"
+    "test": "start-server-and-test dev $(grep APP_URL .env | cut -d '=' -f2) cy:run"
   },
   "devDependencies": {
     "@popperjs/core": "^2.9.2",
@@ -44,6 +44,7 @@
     "browser-sync-webpack-plugin": "^2.3.0",
     "copy-webpack-plugin": "^9.0.0",
     "cypress": "^7.6.0",
+    "dotenv": "^10.0.0",
     "eslint": "^7.2.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-config-prettier": "^8.3.0",
