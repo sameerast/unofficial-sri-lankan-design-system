@@ -2,6 +2,7 @@ const mix = require('laravel-mix');
 const LiveReloadPlugin = require('webpack-livereload-plugin');
 const semver = require('semver');
 const fs = require('fs');
+require("dotenv").config();
 
 moment = require('moment');
 const Highcharts = require('highcharts');
@@ -31,7 +32,7 @@ if (packageJSON.devDependencies.bootstrap != currentBSVersion) {
 }
 
 mix.browserSync({
-  proxy: 'slds.localhost:8080' //php artisan serve --host=slds.localhost --port=8080
+  proxy: process.env.APP_URL //php artisan serve --host=slds.localhost --port=8080
 });
 //"serve": "php artisan serve --host=domain.test --port=8080 & npm run watch"
 mix.webpackConfig({
