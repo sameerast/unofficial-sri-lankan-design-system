@@ -7,7 +7,7 @@
 <p align="center">
 <a href="https://www.desyslag.lk/what-is-the-desyslag-by-sri-lankan-open-source-community/?utm_source=github&utm_medium=landing&utm_campaign=gen">What is DeSySLaG?</a> | 
 <a href="https://www.desyslag.lk/what-is-the-objective-of-desyslag-design-system/?utm_source=github&utm_medium=landing&utm_campaign=gen">Objective of DeSySLaG</a> | 
-<a href="https://www.desyslag.lk/team/?utm_source=github&utm_medium=landing&utm_campaign=gen">Team Behind</a> | 
+<a href="https://www.desyslag.lk/desyslag-team/?utm_source=github&utm_medium=landing&utm_campaign=gen">Team Behind</a> | 
 <a href="https://www.desyslag.lk/blog/?utm_source=github&utm_medium=landing&utm_campaign=gen">Blog</a> | 
 <a href="https://www.DeSySLaG.lk/contact-us/?utm_source=github&utm_medium=landing&utm_campaign=gen">Contact Us</a>
 </p>
@@ -38,11 +38,14 @@ If you discover a security vulnerability within DeSySLaG, please send an e-mail 
 
 DeSySLaG framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
-# unofficial-sri-lankan-design-system
-
-This an open source project, is a Sri Lankan IT professionals collaboration
-
 # Contributing
 
 During beta you can contribute by discussing and proposing components and patterns.
 
+# How to Install and start
+
+Separate 'How to Install.md' file on the root, please follow.
+
+Happy Cording! Thank you.
+
+DeSySLaG Team
